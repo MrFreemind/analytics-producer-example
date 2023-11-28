@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: 'Checkout source code'
-        uses: 'actions/checkout@v2'
+        uses: 'actions/checkout@v4'
         with:
           ref: ${{ github.ref }}
       - name: 'cat package.json'
@@ -24,7 +24,6 @@ jobs:
         uses: 'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          tag-prefix: 'v'
         with:
           skip-tag: 'true'
           commit-message: 'CI: bumps version to {{version}} [skip ci]'
@@ -39,7 +38,9 @@ jobs:
     needs: bump-version
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          ref: 'main'
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -61,7 +62,9 @@ jobs:
       packages: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          ref: 'main'
 
       - name: get-npm-version
         id: package-version
