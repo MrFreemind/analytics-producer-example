@@ -56,15 +56,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1
 
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Build
         run: echo ${{ github.sha }} > Release.txt
       - name: Test
@@ -73,8 +74,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: Release.txt
-          name: "Random name"
-          tag_name: "Random label right?"
+          name: "${{ steps.package-version.outputs.current-version}}"
+          tag_name: "${{ steps.package-version.outputs.current-version}}"
 
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
