@@ -2,9 +2,10 @@
   "name": "@mrfreemind/analytics-producer-example",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "dist/index.ts",
   "scripts": {
-    "test": "tsc --build"
+    "test": "tsc --build",
+    "build": "node scripts/build.js"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 import createAnalyticsFunction from '@/createAnalyticsFunction'
 
-type Data = {
+export type Data = {
     source: 'bookingForm' | 'bookingFormModal' | 'bookingFormModalButton';
 }
 
