@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "exit 0"
+    "test": "tsc --build"
   },
   "repository": {
     "type": "git",
