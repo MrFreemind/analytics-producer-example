@@ -5,7 +5,8 @@
   "main": "dist/index.ts",
   "scripts": {
     "test": "tsc --build",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "release": "tsc --project tsconfig.build.json"
   },
   "repository": {
     "type": "git",

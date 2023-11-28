@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "ES2015",
+    "esModuleInterop": true,
+    "strict": true,
+    "rootDir": "./garbage",
+    "declaration": true,
+    "outDir": "dist",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": ["./garbage*"],
+      "@/createAnalyticsFunction": ["./garbage/createAnalyticsFunction"]
+    }
+  },
+  "exclude": ["node_modules", "src"],
+  "include": ["./garbage/**/*"],
+}

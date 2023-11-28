@@ -3,7 +3,7 @@ const fs = require('node:fs/promises');
 const fsSync = require('node:fs');
 
 const rootDir = path.dirname(__dirname);
-const distFolder = `${rootDir}/dist`;
+const distFolder = `${rootDir}/garbage`;
 const sourceDir = `${rootDir}/src`;
 
 const isDir = (path) => {
@@ -168,6 +168,8 @@ export default {
 }`
 
     fsSync.writeFileSync(`${distFolder}/index.ts`, result);
+
+    fsSync.copyFileSync(`${sourceDir}/createAnalyticsFunction.ts`, `${distFolder}/createAnalyticsFunction.ts`);
 
     console.log('DONE');
 }
