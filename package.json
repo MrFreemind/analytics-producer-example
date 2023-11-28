@@ -2,7 +2,7 @@
   "name": "@mrfreemind/analytics-producer-example",
   "version": "1.0.1",
   "description": "",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "test": "tsc --build",
     "build": "node scripts/build.js",
