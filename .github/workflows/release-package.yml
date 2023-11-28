@@ -1,5 +1,5 @@
 ---
-name: "pre-release"
+name: "What? Release bump?"
 
 on:
   push:
@@ -7,32 +7,26 @@ on:
       - "master"
 
 jobs:
-  pre-release:
-    name: "Pre Release"
-    runs-on: "ubuntu-latest"
+  bump-version:
+    name: "Bump Version on master"
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - name: "Checkout source code"
+        uses: "actions/checkout@v2"
         with:
-          node-version: "16.x"
-
-      - name: Build and Test
-        working-directory: .
-        run: |-
-          npm i
-          npm test
-          npm run build
-          echo "done!"
-
-      - uses: "marvinpinto/action-automatic-releases@latest"
+          ref: ${{ github.ref }}
+      - name: "cat package.json"
+        run: cat ./package.json
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v1"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: "Development Build"
-          files: |
-            LICENSE.txt
-            *.jar
+          node-version: 12
+      - name: "Automated Version Bump"
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+          tag-prefix: ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: "cat package.json"
+        run: cat ./package.json
