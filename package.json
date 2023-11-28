@@ -2,9 +2,10 @@
   "name": "@mrfreemind/analytics-producer-example",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.ts",
   "scripts": {
-    "test": "exit 0"
+    "test": "tsc --build",
+    "build": "node scripts/build.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/MrFreemind/analytics-producer-example#readme",
   "publishConfig": {
     "@mrfreemind:registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.2"
   }
 }
