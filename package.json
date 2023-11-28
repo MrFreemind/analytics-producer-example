@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/MrFreemind/analytics-producer-example/issues"
   },
-  "homepage": "https://github.com/MrFreemind/analytics-producer-example#readme"
+  "homepage": "https://github.com/MrFreemind/analytics-producer-example#readme",
+  "publishConfig": {
+    "@mrfreemind:registry": "https://npm.pkg.github.com"
+  }
 }
