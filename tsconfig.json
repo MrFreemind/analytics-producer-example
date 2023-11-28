@@ -6,9 +6,10 @@
     "strict": true,
     "rootDir": "./src",
     "declaration": true,
-    "outDir": "dist",
+    "outDir": "garbage",
     "paths": {
-        "@/*": ["src/*"]
+        "@/*": ["./src/*"]
     }
   },
+  "exclude": ["node_modules", "dist", "garbage"]
 }
