@@ -1,0 +1,19 @@
+{
+  "name": "@mrfreemind/analytics-producer-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrFreemind/analytics-producer-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrFreemind/analytics-producer-example/issues"
+  },
+  "homepage": "https://github.com/MrFreemind/analytics-producer-example#readme"
+}
