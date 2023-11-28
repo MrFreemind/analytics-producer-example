@@ -51,6 +51,27 @@ jobs:
           npm run build
           npm run release
           echo "done!"
+          
+
+  pre-release:
+    name: "Pre Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      # ...
+      - name: "Build & test"
+        run: |
+          echo "done!"
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            LICENSE.txt
+            *.jar
 
   publish-gpr:
     needs: build
@@ -59,6 +80,16 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{ steps.package-version.outputs.current-version}}"
+          prerelease: false
+          title: "Development Build"
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
